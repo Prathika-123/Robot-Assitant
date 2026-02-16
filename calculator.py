@@ -12,3 +12,5 @@ def divide(a, b):
   if b == 0:
     raise ValueError(&quot;Cannot divide by zero&quot;)
   return a / b
+
+
