@@ -3,8 +3,13 @@ name: Weather App Production Check
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'weather-app/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'weather-app/**'
+
 
 jobs:
   build-and-test:
