@@ -9,12 +9,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
-    # --- MATRIX SECTION ---
     strategy:
       matrix:
         node-version: [18.x, 20.x]
-    # ----------------------
 
     steps:
       - name: Checkout Code
@@ -34,11 +31,9 @@ jobs:
       - name: Run Security Check
         run: node app.js
         env:
-          # Connect GitHub Secret to environment variable
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
 
   package:
-    # Only runs if BOTH Node versions succeed
     needs: build-and-test
     runs-on: ubuntu-latest
 
@@ -52,4 +47,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: weather-app-dist
-          path: weather-app-dist.zip
+          path: |
+            weather-app-dist.zip
+            weather-app.yml
