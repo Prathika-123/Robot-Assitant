@@ -47,6 +47,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: weather-app-dist
-          path: |
-            weather-app-dist.zip
-            weather-app.yml
+          path: weather-app-dist.zip
